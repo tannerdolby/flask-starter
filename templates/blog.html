@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}My Blog - {{ name }}{% endblock %}
+{% block mainhead %}
+<h1>My Blog</h1>
+{% endblock %}
+{% block mainprev %}
+<p>I like to write about all sorts of stuff. Mostly technology and math, but stick around for more!
+{% endblock %}
+{% block main %}
+    <h2>Posts</h2>
+    <ul class="posts">
+    {% for post in posts %}
+        <li>
+            <h3><a href="/blog/{{ post.name | slugify }}">{{ post.name }}</a></h3>
+            <p>{{ post.date }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

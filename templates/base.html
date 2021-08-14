@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="author" content="Tanner Dolby">
+    <meta name="description" content="A basic Flask project utilizing template inheritance.">
+    <meta property="og:title" content="Flask starter">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A starter web application with Flask.">
+    <meta name="twitter:site" content="@tannerdolby">
+    <meta name="twitter:title" content="Flask starter site">
+    {% block head %}
+        <title>{% block title %}{% endblock %} - {{ fname }} {{ lname }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <header class="top-header">
+        <nav id="main-nav">
+            <div>
+                <a href="https://github.com/tannerdolby/flask-starter">Flask Starter</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        {% block mainhead %}{% endblock %}
+        {% block mainprev %}{% endblock %}
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>&copy; {{ fname }} {{ lname }} {{ date.year }}. Built with Python and Flask</p>
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#main-nav">Back to top</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ post. name }}{% endblock %}
+{% block mainhead %}
+<img class="post-image" src="{{ post.image }}" alt="{{ post.alt }}" />
+<h1>{{ post.name }}</h1>
+<p>Posted on {{ post.date }}</p>
+{% endblock %}
+{% block main %}
+{{ post.html | safe }}
+<div class="prev-next">
+    <div>
+        <span>Previous Post</span>
+        <a href="/blog/{{ posts[pos-1]["name"] | slugify }}">{{ posts[pos-1]["name"] }}</a>
+    </div>
+    <div>
+        <span>Next Post</span>
+        {% if posts | length > pos+1 %}
+        <a href="/blog/{{ posts[pos+1]["name"] | slugify }}">{{ posts[pos+1]["name"] }}</a>
+    
+        {% else %}
+        <a href="/blog/{{ posts[0]["name"] | slugify }}">{{ posts[0]["name"] }}</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

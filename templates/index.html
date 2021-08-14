@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Flask Starter{% endblock %}
+
+{% block mainhead %}
+<h1>Hi, I'm {{ fname }}.</h1>
+{% endblock %}
+
+{% block mainprev %}
+<p>This is a basic Flask starter project. This section could be a short intro or whatever you would like it to be.</p>
+{% endblock %}
+
+{% block main %}
+    <section class="projects">
+        <h2>Projects</h2>
+        <ul class="project-list">
+        {% for project in projects %}
+            <li>
+                <h3><a href="/">{{ project.name }}</a></h3>
+                <p>Built on {{ project.date }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

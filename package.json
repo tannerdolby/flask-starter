@@ -1,0 +1,16 @@
+{
+  "name": "flask-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "python3 server.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flask",
+    "python"
+  ],
+  "author": "Tanner Dolby",
+  "license": "ISC"
+}
