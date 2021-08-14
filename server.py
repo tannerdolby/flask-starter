@@ -27,8 +27,6 @@ def slugify(s):
 
 # Handle Routing
 
-print(__name__)
-
 # Root URL route ie '/'
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -49,16 +47,6 @@ def index():
             }
         ]
     )
-
-@app.route('/hello/')
-@app.route('/hello/<name>', methods=["GET", "POST"])
-def hello(name='Root'):
-    """Displays the name at the '/hello/some-name' URL"""
-    print(request.data)
-    # data = request.form["mood"]
-    # print(request.form.get("mood"))
-    return render_template('contact.html', name=name)
-
 
 # Blog posts
 
