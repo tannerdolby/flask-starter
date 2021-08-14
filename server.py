@@ -72,10 +72,9 @@ posts = [
 ]
 
 @app.route('/blog')
-def blog(title=None):
+def blog():
     "Displays the page for '/blog' URL"
     return render_template('blog.html', posts=posts)
-
 
 
 @app.route('/blog/<title>')
@@ -88,8 +87,6 @@ def post(title=''):
         if (title == re.sub(r"[\s]+", "-", post["name"].lower())):
             selected = post
             pos = posts.index(selected)
-
-    print(selected)
 
     return render_template('post.html', post=selected, posts=posts, pos=pos)
 
